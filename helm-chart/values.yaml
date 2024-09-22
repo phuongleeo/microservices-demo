@@ -31,7 +31,7 @@ serviceAccounts:
 
 networkPolicies:
   # Specifies if the NetworkPolicies are created or not. If true, one fine granular NetworkPolicy per app is created.
-  create: false
+  create: true
 
 sidecars:
   # Specifies if the Sidecars are created or not. If true, one fine granular Sidecar per app is created.
@@ -39,7 +39,7 @@ sidecars:
 
 authorizationPolicies:
   # Specifies if the AuthorizationPolicies are created or not. If true, one fine granular AuthorizationPolicy per app is created.
-  create: false
+  create: true
 
 opentelemetryCollector:
   create: false
@@ -120,13 +120,13 @@ frontend:
   platform: local
   singleSharedSession: false
   virtualService:
-    create: false
+    create: true
     hosts:
     - "*"
     gateway:
-      name: asm-ingressgateway
-      namespace: asm-ingress
-      labelKey: asm
+      name: istio-ingressgateway
+      namespace: demo
+      labelKey: istio
       labelValue: ingressgateway
   resources:
     requests:
